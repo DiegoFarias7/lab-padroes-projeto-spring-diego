@@ -33,6 +33,11 @@ public class ClienteRestController {
 		return ResponseEntity.ok(clienteService.buscarTodos());
 	}
 
+	@GetMapping ("/{cep}")
+	public ResponseEntity<Iterable<Cliente>> buscarPorCepIgual(@PathVariable String cep){
+		return ResponseEntity.ok(clienteService.buscarPorCepIgual(cep));
+	}
+
 	@GetMapping("/{id}")
 	public ResponseEntity<Cliente> buscarPorId(@PathVariable Long id) {
 		return ResponseEntity.ok(clienteService.buscarPorId(id));
